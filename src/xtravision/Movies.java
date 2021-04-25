@@ -10,6 +10,7 @@ package xtravision;
  * @author ingridferrante
  */
 public class Movies {
+
     private String title;
     private String sinopysis; 
     private String genre;
@@ -91,9 +92,6 @@ public class Movies {
     public void setLength(int length) {
         this.length = length;
     }
-    
-    
-    
     
     
     
