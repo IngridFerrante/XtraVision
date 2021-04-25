@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package xtravision;
+package model;
 
 /**
  *
- * @author ingridferrante
+ * @author kelly
  */
-public class Movies {
-    //test ok
+public interface PaymentOptions {
+    
+    public void pay();  
+    
 }
