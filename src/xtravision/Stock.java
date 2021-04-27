@@ -13,9 +13,6 @@ public class Stock extends Movies {
     private int id;
     private String StatusStock;
 
-    public Stock(String title, String sinopysis, String genre, String Classification, int year, int length) {
-        super(title, sinopysis, genre, Classification, year, length);
-    }
     
     public void Availability(){
         System.out.println("Movie is available");

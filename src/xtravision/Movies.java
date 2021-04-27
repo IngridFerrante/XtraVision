@@ -17,20 +17,8 @@ public class Movies {
     private String Classification; 
     private int year; 
     private int length;
-
+    private int availability;
    
-
-    public Movies(String title, String sinopysis, String genre, String Classification,
-           int year, int length) {
-        this.title = title;
-        this.sinopysis = sinopysis;
-        this.genre = genre;
-        this.Classification = Classification;
-        this.year = year;
-        this.length = length;
-    }
-
- 
 
   
  
@@ -91,6 +79,14 @@ public class Movies {
 
     public void setLength(int length) {
         this.length = length;
+    }
+
+    public int getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(int availability) {
+        this.availability = availability;
     }
     
     
