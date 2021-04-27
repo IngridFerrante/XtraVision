@@ -9,6 +9,6 @@ package model;
  *
  * @author kelly
  */
-public class Stock {
+public class StatusStock {
     
 }
