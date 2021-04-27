@@ -7,10 +7,8 @@ package model;
 
 /**
  *
- * @author ingridferrante
+ * @author kelly
  */
-public enum StatusRent {
-    rented,
-    returned,
-    soldNotReturned;
+public class Stock {
+    
 }
