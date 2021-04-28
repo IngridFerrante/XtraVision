@@ -15,8 +15,22 @@ public class Customer {
     public int IDcustomerNumber;
     
     //method
-    public void locateCustomer(int IDcustomerNumber) {
+//    public void locateCustomer(int IDcustomerNumber) {
+//        this.IDcustomerNumber = IDcustomerNumber;
+//    }
+
+    public Customer(String email, int IDcustomerNumber) {
+        this.email = email;
         this.IDcustomerNumber = IDcustomerNumber;
     }
+    
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
     
 }

@@ -5,12 +5,14 @@
  */
 package xtra.payment;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author kelly
  */
 public interface PaymentOptions {
     
-    public void pay();  
+    public void pay(BigDecimal purchaseValue); 
     
 }

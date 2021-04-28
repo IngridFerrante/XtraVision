@@ -5,6 +5,8 @@
  */
 package xtra.payment;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import xtra.payment.Card;
 import java.util.Date;
 
@@ -13,10 +15,22 @@ import java.util.Date;
  * @author kelly
  */
 public class Credit extends Card{
-    
+
     //constructor
-    public Credit(int cardNumber, String nameCard, int cvv, Date expiresDate, String type, int IDorderNumber, Date date, double purchaseValue, String basketDescription) {
-        super(cardNumber, nameCard, cvv, expiresDate, type, IDorderNumber, date, purchaseValue, basketDescription);
+    public Credit(int cardNumber, String nameCard, LocalDate expiresDate, int cvv, int password) {
+        super(cardNumber, nameCard, expiresDate, cvv, password);
+    }
+    
+
+    @Override
+    protected void makePayment(BigDecimal purchaseValue) {
+        // get idCustomerNumer information for transaction
+        
+    }
+
+    @Override
+    public void pay(BigDecimal purchaseValue) {
+        makePayment(purchaseValue);
     }
     
     

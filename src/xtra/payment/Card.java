@@ -5,78 +5,55 @@
  */
 package xtra.payment;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
  *
  * @author kelly
  */
-public class Card extends Payment{
+public abstract class Card implements PaymentOptions{
     //atributes
-    private int cardNumber;
-    private String nameCard;
-    private int cvv;
-    private Date expiresDate;
-    private String type; //check 
+    protected int cardNumber;
+    protected String nameCard;
+    protected LocalDate expiresDate;
+    protected int cvv;
+    protected int password; 
     
-    //methods
-//    protected void getType(){
-//        
-//    }
     
-    protected void makePayment(){
-        
-    }
+    protected abstract void makePayment(BigDecimal purchaseValue);
     
     //constructor
-    public Card(int cardNumber, String nameCard, int cvv, Date expiresDate, String type, int IDorderNumber, Date date, double purchaseValue, String basketDescription) {
-        super(IDorderNumber, date, purchaseValue, basketDescription);
+    public Card(int cardNumber, String nameCard, LocalDate expiresDate, int cvv, int password) {
         this.cardNumber = cardNumber;
         this.nameCard = nameCard;
-        this.cvv = cvv;
         this.expiresDate = expiresDate;
-        this.type = type;
+        this.cvv = cvv;
+        this.password = password;
     }
 
+    
     public int getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(int cardNumber) {
-        this.cardNumber = cardNumber;
-    }
-
-    public int getCvv() {
-        return cvv;
-    }
-
-    public void setCvv(int cvv) {
-        this.cvv = cvv;
-    }
-
-    public Date getExpiresDate() {
-        return expiresDate;
-    }
-
-    public void setExpiresDate(Date expiresDate) {
-        this.expiresDate = expiresDate;
-    }
+//    public void setCardNumber(int cardNumber) {
+//        this.cardNumber = cardNumber;
+//    }
 
     public String getNameCard() {
         return nameCard;
     }
 
-    public void setNameCard(String nameCard) {
-        this.nameCard = nameCard;
-    }
+//    public void setNameCard(String nameCard) {
+//        this.nameCard = nameCard;
+//    }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
+//    @Override
+//    public void pay() {
+//        
+//    }
     
       
     

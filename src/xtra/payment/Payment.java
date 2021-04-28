@@ -5,18 +5,21 @@
  */
 package xtra.payment;
 
+import java.time.LocalDate;
 import java.util.Date;
+import xtra.customer.Customer;
 
 /**
  *
  * @author kelly
  */
-public abstract class Payment {
+public class Payment {
     //attributes
     private int IDorderNumber;
-    private Date date; //research
+    private LocalDate datePaid; //research
     private double purchaseValue;
     private String basketDescription;
+    private Customer customer;
 
     //methods
     public void sendReceipt (){
@@ -28,9 +31,8 @@ public abstract class Payment {
     }    
     
     //constructor
-    public Payment(int IDorderNumber, Date date, double purchaseValue, String basketDescription) {
-        this.IDorderNumber = IDorderNumber;
-        this.date = date;
+    public Payment(LocalDate datePaid, double purchaseValue, String basketDescription) {
+        this.datePaid = datePaid;
         this.purchaseValue = purchaseValue;
         this.basketDescription = basketDescription;
     }
@@ -45,12 +47,12 @@ public abstract class Payment {
         this.IDorderNumber = IDorderNumber;
     }
 
-    public Date getDate() {
-        return date;
+    public LocalDate getDate() {
+        return datePaid;
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        this.datePaid = datePaid;
     }
 
     public double getPurchaseValue() {
@@ -67,6 +69,11 @@ public abstract class Payment {
 
     public void setBasketDescription(String basketDescription) {
         this.basketDescription = basketDescription;
+    }
+
+    //method pay
+    public void pay(Card card) {
+
     }
     
     
