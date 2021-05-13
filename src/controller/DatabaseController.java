@@ -233,5 +233,170 @@ public class DatabaseController {
             System.out.println(e.getMessage());
         } 
         
-    }  
+    }
+    
+     
+    //return movie -- update databade quantity movie stock on movies table
+     public void updateQuantityMoviesReturned(int movieId) {
+         
+        try {
+            Connection conn = DriverManager.getConnection(dbServer,dbUser,dbPassword);
+            
+            Statement stmt = conn.createStatement();
+
+        
+            String queries = "update movies set quantity = quantity+1 where idmovies =  "+movieId+";";  
+            stmt.executeUpdate(queries); 
+            
+            // Close the statement and the connection
+            stmt.close();
+            conn.close();
+   
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } 
+        
+    }
+    
+
+    //Check if movie id exist in movies table before return it
+    public Boolean checkDiscCodeInDatabase(int movieId){
+                  
+            //sql query
+            String query = "SELECT * FROM movies WHERE idmovies = '" + movieId + "'";
+            
+            
+            Boolean result = false;
+              
+            try {
+                 
+            Connection conn = DriverManager.getConnection(dbServer,dbUser,dbPassword);
+            
+            // Get a statement from the connection
+            Statement stmt = conn.createStatement();
+
+            // Execute the query
+            ResultSet rs = stmt.executeQuery(query);
+
+            // Loop through the result set
+            if (rs.next()) {
+                result = true;
+            }
+
+            // Close the result set, statement and the connection
+            rs.close();
+            stmt.close();
+            conn.close();
+            
+        } catch (SQLException se) {
+            System.out.println("SQL Exception:");
+
+            // Loop through the SQL Exceptions
+            while (se != null) {
+                System.out.println("State  : " + se.getSQLState());
+                System.out.println("Message: " + se.getMessage());
+                System.out.println("Error  : " + se.getErrorCode());
+
+                se = se.getNextException();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        return result;
+        
+    }
+    
+    //=======WORKING ON THAT
+    //method to send order by email
+    public Transaction[] sendOrderByEmail(){
+             ArrayList<Transaction> transaction = new ArrayList<>();
+                  
+            //sql query
+            String query = "SELECT * FROM orders ORDER BY id_order LIMIT 1 ";
+            
+         //   String query = "SELECT * FROM stock_disc '";
+            
+              Boolean result = false;
+              
+             try {
+                 
+            Connection conn = DriverManager.getConnection(dbServer,dbUser,dbPassword);
+            
+       Statement stmt = conn.createStatement();
+            
+            //takes the name and location information
+           // [][] searchMovie = new String[allMoviesCount]String[5]; //change 
+
+            ResultSet rs = stmt.executeQuery(query);
+            
+            while (rs.next()) {                     
+                
+            Transaction transactions = new Transaction (rs.getString(1), rs.getDate(2),rs.getDate(3),rs.getDouble(4));    
+                         
+               transaction.add(transactions);
+                
+            }
+            // Close the result set, statement and the connection
+            rs.close();
+            stmt.close();
+            conn.close();
+            
+        } catch (SQLException se) {
+            System.out.println("SQL Exception:");
+
+            // Loop through the SQL Exceptions
+            while (se != null) {
+                System.out.println("State  : " + se.getSQLState());
+                System.out.println("Message: " + se.getMessage());
+                System.out.println("Error  : " + se.getErrorCode());
+
+                se = se.getNextException();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return transaction.toArray(new Transaction[transaction.size()]);
+    }
+    
+    
+    //to put email in the database card table
+        public void updateEmail (Email email) {
+        
+               // this sql is created because the system double check is the status was not 
+        // updated by the user who created this appoitment
+        String sql = "UPDATE card SET email = '" + email.getEmail() + "' WHERE id_customer = '" + email.getCard() + "';";
+                
+        try {
+                    
+            // Get a connection to the database
+            Connection conn = DriverManager.getConnection(dbServer, dbUser,dbPassword);
+            
+            // Get a statement from the connection
+            Statement stmt = conn.createStatement();
+
+            stmt.executeUpdate(sql); 
+                       
+            // Close the result set, statement and the connection
+            stmt.close();
+            conn.close();
+        } catch (SQLException se) {
+            String msg = null;
+            // Loop through the SQL Exceptions
+            while (se != null) {
+                msg = se.getSQLState() + " " + "Message: " + se.getMessage() + " " + "Error  : " + se.getErrorCode();
+                se = se.getNextException();
+                if (se != null)
+                    msg =  msg + System.lineSeparator();
+            }
+            
+        } catch (Exception e) {
+           
+        } 
+        
+    }
+    
+    
+    
+      
 }
