@@ -321,22 +321,25 @@ public class PaymentView extends javax.swing.JFrame {
             DatabaseController db = new DatabaseController();
             boolean checkCardExistDB = db.checkIfCardExist(jTextFieldCardNumber.getText());
             
-            if(checkCardExistDB == false)
-            {
-                //new customer
-                if(idmovies.length > 2)
-                {
-                    JOptionPane.showMessageDialog(this, "New customers can only rent 2 movies at the same time ");
-                }
-            }
-            else
-            {
-                if(idmovies.length > 3)
-                {
-                    JOptionPane.showMessageDialog(this, "Returning customers can only rent 4 movies at the same time ");
-                }
-                else
-                {
+//            if(checkCardExistDB == false)
+//            {
+//                //new customer
+//                if(idmovies.length > 2)
+//                {
+//                    JOptionPane.showMessageDialog(this, "New customers can only rent 2 movies at the same time ");
+//                    MovieList backMovieChoice = new MovieList();
+//                    backMovieChoice.show();
+//                    
+//                }
+//            }else{
+//                
+//                if(idmovies.length > 3)
+//                {
+//                    JOptionPane.showMessageDialog(this, "Returning customers can only rent 4 movies at the same time ");
+//                    MovieList backMovieChoice = new MovieList();
+//                    backMovieChoice.show();
+//                }else{
+                
                     //take card information from user
                     Creditcard card = new Creditcard(jTextFieldCardNumber.getText() ,
                         jTextFieldCardName.getText(), 
@@ -366,17 +369,18 @@ public class PaymentView extends javax.swing.JFrame {
 
 
                     //TODO: if(createTransaction == true) { db.UpdateStockCountInDatabase(..)
+                        Congratulation c1 = new Congratulation();
+                        c1.show(); // display the congratulation page
 
-
-                    Congratulation c1 = new Congratulation();
-                    c1.show(); // display the congratulation page
+                   
                 
                 
-                }
+                //}
+               
+            //}
+             
                 
-            }
-            
-            dispose(); // close current frame after open movielist
+                dispose(); // close current frame after open movielist
   
         }
         catch (Exception ex) {
@@ -384,6 +388,79 @@ public class PaymentView extends javax.swing.JFrame {
                     
                     
         }
+        
+//           try{
+//                  
+//            DatabaseController db = new DatabaseController();
+//            boolean checkCardExistDB = db.checkIfCardExist(jTextFieldCardNumber.getText());
+//            
+//            if(checkCardExistDB == false)
+//            {
+//                //new customer
+//                if(idmovies.length > 2)
+//                {
+//                    JOptionPane.showMessageDialog(this, "New customers can only rent 2 movies at the same time ");
+//                    MovieList backMovieChoice = new MovieList();
+//                    backMovieChoice.show();
+//                    
+//                }
+//            }else{
+//                
+//                if(idmovies.length > 3)
+//                {
+//                    JOptionPane.showMessageDialog(this, "Returning customers can only rent 4 movies at the same time ");
+//                    MovieList backMovieChoice = new MovieList();
+//                    backMovieChoice.show();
+//                }else{
+//                
+//                    //take card information from user
+//                    Creditcard card = new Creditcard(jTextFieldCardNumber.getText() ,
+//                        jTextFieldCardName.getText(), 
+//                        Integer.parseInt(jComboBoxMonth.getSelectedItem().toString()),
+//                        Integer.parseInt(jComboBoxYear.getSelectedItem().toString()),
+//                        Integer.parseInt(jTextFieldCvv.getText()));
+//                        card.checkCardValidation(card);
+//
+//                    //database
+//                    boolean create = db.createCardInDatabase(card);
+//
+//                    //create order
+//                    Transaction transaction = new Transaction(jTextFieldCardNumber.getText(), startDate, endDate, totalPrice );
+//
+//                    boolean createTransaction = db.CreateOrderInDatabase(transaction);
+//                    db.updateQuantityMoviesRented(idmovies);//take idmovies from to deduct stock quantity
+//
+//
+//                    //show option pane with movies id and title to be returned later 
+//
+//                    if(createTransaction){
+//                        
+//                        JOptionPane.showMessageDialog(this, "Success! Your disc code is: "  );
+//                        //JOptionPane.showMessageDialog(this, "Success! Your disc code is: " +  bask.idMovies.toString());
+//
+//                    }      
+//
+//
+//                    //TODO: if(createTransaction == true) { db.UpdateStockCountInDatabase(..)
+//                        Congratulation c1 = new Congratulation();
+//                        c1.show(); // display the congratulation page
+//
+//                   
+//                
+//                
+//                }
+//               
+//            }
+//             
+//                
+//                dispose(); // close current frame after open movielist
+//  
+//        }
+//        catch (Exception ex) {
+//            JOptionPane.showMessageDialog(this, "Error: " +  ex.getMessage());
+//                    
+//                    
+//        }
 //        
 //        JOptionPane.showMessageDialog(this,
               
