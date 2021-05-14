@@ -233,6 +233,9 @@ public class Return extends javax.swing.JFrame {
               dbReturn.updateQuantityMoviesReturned(movieId);//returned
                 
               JOptionPane.showMessageDialog(this, "Movie confirmed " +  idmovies ); // does not identify the input 
+              ReturnDone goReturndonePage = new ReturnDone();
+              goReturndonePage.show();
+              dispose();
                
             }
             else{

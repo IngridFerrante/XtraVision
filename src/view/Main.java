@@ -278,7 +278,7 @@ public class Main extends javax.swing.JFrame {
             m2.show(); // display movielist here
             
             dispose(); // close current frame after open movielist
-            
+                
         
     }//GEN-LAST:event_rentButtonActionPerformed
 

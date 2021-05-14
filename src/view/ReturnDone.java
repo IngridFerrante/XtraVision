@@ -10,8 +10,10 @@ import model.Transaction;
 import controller.DatabaseController;
 import javax.swing.JOptionPane;
 import controller.MoviesTable;
+import static java.time.Clock.system;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JFrame;
 //import test_finalCode.TransactionModel;
 
 /**
@@ -138,6 +140,11 @@ public class ReturnDone extends javax.swing.JFrame {
         });
 
         noLeavePagejToggleButton2.setText("NO");
+        noLeavePagejToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noLeavePagejToggleButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -205,8 +212,14 @@ public class ReturnDone extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void yesRentjToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesRentjToggleButtonActionPerformed
-        // TODO add your handling code here:
+        Main goBackToMain = new Main();
+        goBackToMain.show();
+        dispose();
     }//GEN-LAST:event_yesRentjToggleButtonActionPerformed
+
+    private void noLeavePagejToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noLeavePagejToggleButton2ActionPerformed
+       super.dispose();       
+    }//GEN-LAST:event_noLeavePagejToggleButton2ActionPerformed
   
     /**
      * @param args the command line arguments

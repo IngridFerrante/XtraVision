@@ -50,6 +50,7 @@ public class Congratulation extends javax.swing.JFrame {
         jTextFieldTypeEmail = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jButtonSubmitEmail = new javax.swing.JButton();
+        noThanksBtn = new javax.swing.JButton();
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -154,14 +155,17 @@ public class Congratulation extends javax.swing.JFrame {
             }
         });
 
+        noThanksBtn.setText("No, Thank you");
+        noThanksBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noThanksBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(140, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,6 +185,15 @@ public class Congratulation extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButtonSubmitEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(77, 77, 77))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(303, 303, 303)
+                        .addComponent(noThanksBtn)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,7 +211,9 @@ public class Congratulation extends javax.swing.JFrame {
                     .addComponent(jTextFieldTypeEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSubmitEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(noThanksBtn)
+                .addContainerGap(142, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -242,6 +257,8 @@ public class Congratulation extends javax.swing.JFrame {
           Email SE = new Email (jTextFieldTypeEmail.getText());
           
                   JOptionPane.showMessageDialog(this, "email sent! " );
+                  dispose();
+                  
       }
     }//GEN-LAST:event_jButtonSubmitEmailActionPerformed
   
@@ -249,6 +266,10 @@ public class Congratulation extends javax.swing.JFrame {
     //Email SE = new Email (jTextFieldTypeEmail.getText()); 
 
     }//GEN-LAST:event_jButtonSubmitEmailMouseReleased
+
+    private void noThanksBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noThanksBtnActionPerformed
+        super.dispose();
+    }//GEN-LAST:event_noThanksBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,6 +334,7 @@ public class Congratulation extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextFieldTypeEmail;
+    private javax.swing.JButton noThanksBtn;
     // End of variables declaration//GEN-END:variables
 
 

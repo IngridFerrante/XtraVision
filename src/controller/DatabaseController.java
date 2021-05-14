@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import javax.mail.MessagingException;
 import view.Congratulation;
 import view.PaymentView;
+import view.Return;
 
 /**
  *
@@ -173,7 +174,7 @@ public class DatabaseController {
     }
 
 
-        //======== WORKING ON THAT
+    
     //check if card already exist in the database
     public boolean checkIfCardExist(String cardNumber) throws SQLException{
         
@@ -212,8 +213,7 @@ public class DatabaseController {
     }
     
         
-//        
-
+    //method to decrease/update database movie from stock when is rented         
     public void updateQuantityMoviesRented(int[] idmovies) {
          
         try {
@@ -236,7 +236,7 @@ public class DatabaseController {
     }
     
      
-    //return movie -- update databade quantity movie stock on movies table
+    //return/update movie databade quantity movie stock on movies table
      public void updateQuantityMoviesReturned(int movieId) {
          
         try {
@@ -307,27 +307,23 @@ public class DatabaseController {
         
     }
     
-    //=======WORKING ON THAT
+    
+
     //method to send order by email
     public Transaction sendOrderByEmail(){
-             Transaction transaction = null;
+        Transaction transaction = null;
                   
-            //sql query
-            String query = "SELECT * FROM orders ORDER BY id_order LIMIT 1;";
-            
-         //   String query = "SELECT * FROM stock_disc '";
-            
-              Boolean result = false;
+        //sql query
+        String query = "SELECT * FROM orders ORDER BY id_order LIMIT 1;";
+        
+        Boolean result = false;
               
-             try {
+        try {
                  
             Connection conn = DriverManager.getConnection(dbServer,dbUser,dbPassword);
             
-       Statement stmt = conn.createStatement();
-            
-            //takes the name and location information
-           // [][] searchMovie = new String[allMoviesCount]String[5]; //change 
-
+            Statement stmt = conn.createStatement();
+       
             ResultSet rs = stmt.executeQuery(query);
             
             while (rs.next()) {                     
@@ -335,9 +331,7 @@ public class DatabaseController {
                 System.out.println(rs.getString(2));
                 System.out.println(rs.getString(3));
                 System.out.println(rs.getString(4));
-                transaction = new Transaction (rs.getString(1), rs.getDate(3),rs.getDate(4),rs.getDouble(5));    
-                         
-               
+                transaction = new Transaction (rs.getString(1), rs.getDate(3),rs.getDate(4),rs.getDouble(5));                                            
                 
             }
             // Close the result set, statement and the connection
@@ -362,13 +356,12 @@ public class DatabaseController {
         return transaction;
     }
     
-    
+     //====WORKING ON THAT ====
     //to put email in the database card table
-        public void updateEmail (Email email) {
-        
-               // this sql is created because the system double check is the status was not 
+    public void updateEmail (Email SE) {
+    
         // updated by the user who created this appoitment
-        String sql = "UPDATE card SET email = '" + email.getEmail() + "' WHERE id_customer = '" + email.getCard() + "';";
+        String sql = "UPDATE card SET email = '" + SE.getEmail() + "' WHERE id_customer = '" + SE.getCard() + "';";
                 
         try {
                     
@@ -399,7 +392,29 @@ public class DatabaseController {
         
     }
     
-    
+    //====WORKING ON THAT=====
+    //Change the status in statusrental table, to keep track of which card in returning a movie
+    public void updateRentalStatusByReturned(Return statusRental) {
+         
+//        try {
+//            Connection conn = DriverManager.getConnection(dbServer,dbUser,dbPassword);
+//            
+//            Statement stmt = conn.createStatement();
+//
+//        
+//            String queries = "update rentaldetail set rental = rental+1 where rentaldetail =  "+ statusRental +";"; 
+//            
+//            stmt.executeUpdate(queries); 
+//            
+//            // Close the statement and the connection
+//            stmt.close();
+//            conn.close();
+//   
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        } 
+        
+    }
     
       
 }
