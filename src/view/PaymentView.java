@@ -363,16 +363,11 @@ public class PaymentView extends javax.swing.JFrame {
                         Congratulation c1 = new Congratulation();
                         c1.show(); // display the congratulation page
 
-                   
-                
-                
-                
-               
                     
                 }
             }else{
                 
-                if(idmovies.length > 3)
+                if(idmovies.length > 4)
                 {
                     JOptionPane.showMessageDialog(this, "Returning customers can only rent 4 movies at the same time ");
                     MovieList backMovieChoice = new MovieList();
