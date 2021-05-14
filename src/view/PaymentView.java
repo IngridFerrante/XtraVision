@@ -352,8 +352,8 @@ public class PaymentView extends javax.swing.JFrame {
                     //show option pane with movies id and title to be returned later 
 
                     if(createTransaction){
-                        
-                        JOptionPane.showMessageDialog(this, "Success! Your disc code is: "  );
+                    //    System.out.println("code: ");
+                        JOptionPane.showMessageDialog(this, "Success! "  );
                         //JOptionPane.showMessageDialog(this, "Success! Your disc code is: " +  bask.idMovies.toString());
 
                     }      
@@ -396,7 +396,9 @@ public class PaymentView extends javax.swing.JFrame {
 
                     if(createTransaction){
                         
-                        JOptionPane.showMessageDialog(this, "Success! Your disc code is: "  );
+                        
+                      //  System.out.println("code: " );
+                        JOptionPane.showMessageDialog(this, "Success!"   );
                         //JOptionPane.showMessageDialog(this, "Success! Your disc code is: " +  bask.idMovies.toString());
 
                     }      
