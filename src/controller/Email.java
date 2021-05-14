@@ -94,7 +94,7 @@ public class Email {
         DatabaseController db = new DatabaseController();
         String text = db.sendOrderByEmail().toString();
              
-         
+             
         message.setContent(text,"text/html; charset=utf-8" );
         message.saveChanges();
            
@@ -102,7 +102,7 @@ public class Email {
           
         System.out.println(message);
           
-        Transport.send(message);
+        //Transport.send(message);
           
         System.out.println("Mail sent");
           

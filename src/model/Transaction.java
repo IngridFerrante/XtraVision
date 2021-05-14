@@ -80,10 +80,10 @@ public class Transaction {
         this.totalPrice = totalPrice;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Transaction{" + "cardNumber=" + cardNumber + ", startDate=" + startDate + ", endDate=" + endDate + ", totalPrice=" + totalPrice + '}';
-//    }
+    @Override
+    public String toString() {
+        return "Transaction{" + "cardNumber=" + cardNumber + ", startDate=" + startDate + ", endDate=" + endDate + ", totalPrice=" + totalPrice + '}';
+    }
 
     
 }

@@ -309,11 +309,11 @@ public class DatabaseController {
     
     //=======WORKING ON THAT
     //method to send order by email
-    public Transaction[] sendOrderByEmail(){
-             ArrayList<Transaction> transaction = new ArrayList<>();
+    public Transaction sendOrderByEmail(){
+             Transaction transaction = null;
                   
             //sql query
-            String query = "SELECT * FROM orders ORDER BY id_order LIMIT 1 ";
+            String query = "SELECT * FROM orders ORDER BY id_order LIMIT 1;";
             
          //   String query = "SELECT * FROM stock_disc '";
             
@@ -331,10 +331,13 @@ public class DatabaseController {
             ResultSet rs = stmt.executeQuery(query);
             
             while (rs.next()) {                     
-                
-            Transaction transactions = new Transaction (rs.getString(1), rs.getDate(2),rs.getDate(3),rs.getDouble(4));    
+                System.out.println(rs.getString(1));
+                System.out.println(rs.getString(2));
+                System.out.println(rs.getString(3));
+                System.out.println(rs.getString(4));
+                transaction = new Transaction (rs.getString(1), rs.getDate(3),rs.getDate(4),rs.getDouble(5));    
                          
-               transaction.add(transactions);
+               
                 
             }
             // Close the result set, statement and the connection
@@ -356,7 +359,7 @@ public class DatabaseController {
         } catch (Exception e) {
             System.out.println(e);
         }
-        return transaction.toArray(new Transaction[transaction.size()]);
+        return transaction;
     }
     
     
