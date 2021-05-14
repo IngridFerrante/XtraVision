@@ -101,8 +101,9 @@ public class Email {
         //message.setText(text, "text/html; charset=utf-8");
           
         System.out.println(message);
-          
-        //Transport.send(message);
+        
+        //make the email message transport 
+        Transport.send(message);
           
         System.out.println("Mail sent");
           
