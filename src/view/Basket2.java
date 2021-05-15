@@ -6,7 +6,7 @@
 package view;
 
 import model.Movie;
-import controller.MovieSourcezin;
+//import controller.MovieSourcezin;
 import model.Movies;
 import java.awt.Image;
 import java.text.SimpleDateFormat;
@@ -21,7 +21,7 @@ import view.MovieList;
  * @author ingridferrante
  */
 public class Basket2 extends javax.swing.JFrame {
-
+    //atributes
     private double totalNumberOfMovies;
     private double totalPrice;
     private Date startDate;
@@ -57,16 +57,16 @@ public class Basket2 extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        differenceBtn = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        confirmDatesBtn = new javax.swing.JButton();
+        numberDaysRent = new javax.swing.JLabel();
+        totalPriceLabel = new javax.swing.JLabel();
+        priceMoviesChosen = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         confirmOrder1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        codeTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,22 +109,22 @@ public class Basket2 extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable1);
 
-        differenceBtn.setText("Confirm");
-        differenceBtn.addActionListener(new java.awt.event.ActionListener() {
+        confirmDatesBtn.setText("Confirm");
+        confirmDatesBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                differenceBtnActionPerformed(evt);
+                confirmDatesBtnActionPerformed(evt);
             }
         });
 
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Total Days");
+        numberDaysRent.setForeground(new java.awt.Color(255, 255, 255));
+        numberDaysRent.setText("Total Days");
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 25)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("0");
+        totalPriceLabel.setFont(new java.awt.Font("Lucida Grande", 0, 25)); // NOI18N
+        totalPriceLabel.setForeground(new java.awt.Color(255, 255, 255));
+        totalPriceLabel.setText("0");
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Total Movies");
+        priceMoviesChosen.setForeground(new java.awt.Color(255, 255, 255));
+        priceMoviesChosen.setText("Total Movies");
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -166,7 +166,7 @@ public class Basket2 extends javax.swing.JFrame {
                             .addGap(13, 13, 13)
                             .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(differenceBtn))
+                            .addComponent(confirmDatesBtn))
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel8)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -177,9 +177,9 @@ public class Basket2 extends javax.swing.JFrame {
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(priceMoviesChosen)
+                            .addComponent(numberDaysRent)
+                            .addComponent(totalPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(356, 356, 356))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel9)
@@ -208,15 +208,15 @@ public class Basket2 extends javax.swing.JFrame {
                         .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel4)
                         .addComponent(jLabel5))
-                    .addComponent(differenceBtn))
+                    .addComponent(confirmDatesBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
+                .addComponent(numberDaysRent)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(priceMoviesChosen)
                 .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jLabel1))
+                    .addComponent(totalPriceLabel))
                 .addGap(72, 72, 72)
                 .addComponent(backToMovies, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
@@ -231,9 +231,9 @@ public class Basket2 extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(204, 0, 0));
         jLabel6.setText("CUPOM");
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        codeTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                codeTextFieldActionPerformed(evt);
             }
         });
 
@@ -245,7 +245,7 @@ public class Basket2 extends javax.swing.JFrame {
                 .addGap(92, 92, 92)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(codeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(361, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -258,7 +258,7 @@ public class Basket2 extends javax.swing.JFrame {
                 .addContainerGap(357, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(codeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(319, 319, 319))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -270,16 +270,19 @@ public class Basket2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backToMoviesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToMoviesActionPerformed
+        //button to go back to the Movie List and close basket frame
         MovieList p1 = new MovieList();
-        p1.show(); // display movielist here
+        p1.show(); 
         dispose();
     }//GEN-LAST:event_backToMoviesActionPerformed
 
-    private void differenceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_differenceBtnActionPerformed
-
+    private void confirmDatesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmDatesBtnActionPerformed
+ 
+        //count row and put into array number of rows
         int numrow = jTable1.getRowCount();
         idMovies =new int [numrow];
         
+        // for number rows length 
         for(int i = 0 ; i < numrow; i++)
         {
             double val = Double.valueOf(jTable1.getValueAt(i, 5).toString());
@@ -287,42 +290,49 @@ public class Basket2 extends javax.swing.JFrame {
             totalNumberOfMovies += val;
         }
         
-        jLabel3.setText("Price of movies chosen: "+Double.toString(totalNumberOfMovies));
+        //print the total price of movies chosen
+        priceMoviesChosen.setText("Price of movies chosen: "+Double.toString(totalNumberOfMovies));
         
+        //convert date to the format of "yyyy-MM-dd"
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
-        //Date d1 = null;
-        //Date d2 = null;
-
         try{
+            // validation if start or end date is NOT null get the dates and do the calculation
             if(this.jDateChooser1.getDate() != null && this.jDateChooser2.getDate() !=null ) {
                    
-            startDate = jDateChooser1.getDate();// format.parse(format.format(jDateChooser1.getDate()));
-            endDate = jDateChooser2.getDate();//format.parse(format.format(jDateChooser2.getDate()));
+            startDate = jDateChooser1.getDate(); // get start date
+            endDate = jDateChooser2.getDate(); // get end date
            
+            // get the difference of numbers end - start dates to give the price according to the number of days chosen
             long diff = endDate.getTime()-startDate.getTime();
 
+            //hours calculation
             long hours = diff / (60*60*1000);
+            //day calculation
             long days = hours /24;
 
+            //total price calculation
             totalPrice = (double) (totalNumberOfMovies * days);
-
+            
+            //price of the days calculation
             double priceDays = (2.99 * days );
         
         
-
-        jLabel7.setText("Rent movie for: "+Long.toString (days) + "days" + " price: " + Double.toString (priceDays));
-    //    jLabel8.setText("Price of each movie for these days is : "+Long.toString (price) + " euro");
+            //show the total number of days chosen to rent and price for these days
+        numberDaysRent.setText("Rent movie for: "+Long.toString (days) + "days" + " price: " + Double.toString (priceDays));
+   
     
-        if(jTextField5.getText().equals("FREE123")){
+        //if write FREE123 in the code textfield get the total price and give a discount of 2.99 that is the value of a movie
+        if(codeTextField.getText().equals("FREE123")){
             totalPrice  =  totalPrice  - 2.99;
-            jLabel1.setText(Double.toString (totalPrice)+ " euro");
+            totalPriceLabel.setText(Double.toString (totalPrice)+ " euro");
         } else {
-    
-            jLabel1.setText(Double.toString (totalPrice) + " euro");
+            // else print the total price with no discount
+            totalPriceLabel.setText(Double.toString (totalPrice) + " euro");
         }                       
             
         } else {
+                // validation if start or end date is null show a pop up requesting the date
                     JOptionPane.showMessageDialog(rootPane, "Please choose a date");
                 }
 
@@ -331,17 +341,16 @@ public class Basket2 extends javax.swing.JFrame {
         }
       
         
-    }//GEN-LAST:event_differenceBtnActionPerformed
+    }//GEN-LAST:event_confirmDatesBtnActionPerformed
       
 
     
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void codeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codeTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_codeTextFieldActionPerformed
 
     private void confirmOrder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmOrder1ActionPerformed
-        // TODO add your handling code here:
-        
+        //confirm button and move to the Payment page with the parameters of the order.
         PaymentView p1 = new PaymentView(startDate, endDate, totalPrice,idMovies);
         p1.show(); // display Payment view
         dispose();
@@ -386,24 +395,24 @@ public class Basket2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backToMovies;
+    private javax.swing.JTextField codeTextField;
+    private javax.swing.JButton confirmDatesBtn;
     private javax.swing.JButton confirmOrder1;
-    private javax.swing.JButton differenceBtn;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JLabel numberDaysRent;
+    private javax.swing.JLabel priceMoviesChosen;
+    private javax.swing.JLabel totalPriceLabel;
     // End of variables declaration//GEN-END:variables
 
 

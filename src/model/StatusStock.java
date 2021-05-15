@@ -9,7 +9,7 @@ package model;
  *
  * @author kelly
  */
-public enum StatusStock { //it will be on --- not working yet
+public enum StatusStock { //trying to use enumeration to change the movies status on the database
     
     inStock, rented, soldNotReturned;
     

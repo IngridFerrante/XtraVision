@@ -6,7 +6,7 @@
 package view;
 
 import model.Movie;
-import controller.MovieSourcezin;
+//import controller.MovieSourcezin;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import view.MovieList;
@@ -28,6 +28,7 @@ public class Main extends javax.swing.JFrame {
     
     public Main() {
         initComponents();
+        //calling method below
         cardImage();
         cardImage2();
         cardImage3();
@@ -35,7 +36,7 @@ public class Main extends javax.swing.JFrame {
         userImage();
     }
     
-    
+    //method to print the card image in the main page
     public void cardImage(){
         ImageIcon myImage = new ImageIcon("mastercard.png");       
         // to fit in the label
@@ -46,6 +47,7 @@ public class Main extends javax.swing.JFrame {
 
     }
     
+    //method to print the card image in the main page
     public void cardImage2(){
         ImageIcon myImage2 = new ImageIcon("visa.png");       
         // to fit in the label
@@ -55,6 +57,7 @@ public class Main extends javax.swing.JFrame {
         label2.setIcon(flagicon2);
     }
     
+    //method to print the card image in the main page
     public void cardImage3(){
         ImageIcon myImage3 = new ImageIcon("americanexpress.png");       
         // to fit in the label
@@ -64,6 +67,7 @@ public class Main extends javax.swing.JFrame {
         label3.setIcon(flagicon3);
     }
     
+    //method to print the card image in the main page
     public void cardImage4(){
         ImageIcon myImage4 = new ImageIcon("elo.png");       
         // to fit in the label
@@ -73,6 +77,7 @@ public class Main extends javax.swing.JFrame {
         label4.setIcon(flagicon4);
     }
     
+    //method to print the user image in the main page
     public void userImage(){
         ImageIcon myImage5 = new ImageIcon("user.png");       
         // to fit in the label
@@ -273,7 +278,7 @@ public class Main extends javax.swing.JFrame {
 
     private void rentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentButtonActionPerformed
         
-            // open page 2
+            // open page Movie List
             MovieList m2 = new MovieList();
             m2.show(); // display movielist here
             
@@ -283,8 +288,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_rentButtonActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        // TODO add your handling code here:
-         // open page 2 return
+         // open page return
             Return m2 = new Return();
             m2.show(); // display return page here
             

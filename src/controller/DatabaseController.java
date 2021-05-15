@@ -52,7 +52,7 @@ public class DatabaseController {
             Boolean result = false;
               
             try {
-                 
+                 //connection
             Connection conn = DriverManager.getConnection(dbServer,dbUser,dbPassword);
             
             Statement stmt = conn.createStatement();
@@ -64,7 +64,7 @@ public class DatabaseController {
             {
                 result = true;
             }
-
+            // Close the statement and the connection
             stmt.close();
             conn.close();
    
@@ -78,10 +78,10 @@ public class DatabaseController {
     }
     
     
-    //counts the search through name results
+    
     public Boolean createCardInDatabase(Card card){
         
-        //sql query
+        //sql query - insert card details in the database
         String query = "INSERT into card (id_cardnumber, namecard, month_expiresdate, year_expiresdate, cvv)\n" +
                 "values ('" +card.getIDcardNumber()+ "', '"+
                 card.getNameCard()+ "', '"+
@@ -104,7 +104,7 @@ public class DatabaseController {
                 result = true;
             }
            
-            // Close the rstatement and the connection
+            // Close the statement and the connection
             stmt.close();
             conn.close();
    
@@ -118,18 +118,16 @@ public class DatabaseController {
     }
        
     
-    //search for a match on movie title
+    // selecting all the movies from the data base
     public  Movie[] getAllMoviesFromDatabase() 
     {
         
-        //String[][] searchMovieResult = new String[allMoviesCount][5];
+        // arrayList of the movies
         ArrayList<Movie> movies = new ArrayList<>();
         
         try
         {
-            //String dbServer = "jdbc:mysql://52.50.23.197:3306/Kelly_2019375?useSSL=false";
-            //String dbUser = "Kelly_2019375";
-            //String dbPassword = "2019375";
+   
             
             //sql query
             String Query = "Select * from movies";
@@ -141,7 +139,7 @@ public class DatabaseController {
             
 
             ResultSet rs = stmt.executeQuery(Query);
-            
+            // while result, get all the columns from the database and print on the column table 0 to 7 
             while (rs.next()) {  
                 if(rs.getInt(8)>0){
                 Movie movie = new Movie (rs.getInt(1),rs.getString(2),rs.getString(3),
@@ -169,7 +167,7 @@ public class DatabaseController {
             }
         } catch (Exception e) {
             System.out.println(e);
-        }
+        } 
         return movies.toArray(new Movie[movies.size()]);
     }
 
@@ -179,7 +177,7 @@ public class DatabaseController {
     public boolean checkIfCardExist(String cardNumber) throws SQLException{
         
         boolean checkCardExist = false;
-        
+        // select the cardNumber from the column id_cardnumber on the card table in database
         String query = "select * from card where id_cardnumber = '" + cardNumber + "'";
         DatabaseController db = new DatabaseController();
         
@@ -195,7 +193,7 @@ public class DatabaseController {
          
             if(rs.next())
             {
-                
+                //confirmation if card exist
                 checkCardExist = true;
             }
             
@@ -236,7 +234,7 @@ public class DatabaseController {
     }
     
      
-    //return/update movie databade quantity movie stock on movies table
+    //update movie quantity on the database and show in movies table.
      public void updateQuantityMoviesReturned(int movieId) {
          
         try {
@@ -244,7 +242,7 @@ public class DatabaseController {
             
             Statement stmt = conn.createStatement();
 
-        
+            // sql query
             String queries = "update movies set quantity = quantity+1 where idmovies =  "+movieId+";";  
             stmt.executeUpdate(queries); 
             
@@ -309,11 +307,11 @@ public class DatabaseController {
     
     
 
-    //method to send order by email
+    //method to send order information by email
     public Transaction sendOrderByEmail(){
         Transaction transaction = null;
                   
-        //sql query
+        //sql query to get the last order recorded on the database and send to the customer
         String query = "SELECT * FROM orders ORDER BY id_order LIMIT 1;";
         
         Boolean result = false;
@@ -325,7 +323,7 @@ public class DatabaseController {
             Statement stmt = conn.createStatement();
        
             ResultSet rs = stmt.executeQuery(query);
-            
+            // taking all columns result from the last order information and print in the email
             while (rs.next()) {                     
                 System.out.println(rs.getString(1));
                 System.out.println(rs.getString(2));
