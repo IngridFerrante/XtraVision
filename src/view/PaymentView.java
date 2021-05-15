@@ -30,7 +30,7 @@ import view.MovieList;
  * @author kelly
  */
 public class PaymentView extends javax.swing.JFrame {
-
+//attributes
     protected final Date startDate;
     protected final Date endDate;
     protected final double totalPrice;
@@ -39,6 +39,8 @@ public class PaymentView extends javax.swing.JFrame {
     /**
      * Creates new form Payment
      */
+    
+    //constructor
     public PaymentView(Date startDate, Date endDate, double price, int [] idmovies) {
         this.startDate = startDate;
         this.endDate = endDate;
@@ -48,6 +50,7 @@ public class PaymentView extends javax.swing.JFrame {
     
     }
 
+    //constructor
     public PaymentView()
     {
         startDate = null;
@@ -75,7 +78,7 @@ public class PaymentView extends javax.swing.JFrame {
         jTextFieldCardNumber = new javax.swing.JTextField();
         jTextFieldCvv = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        payButton = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -141,11 +144,11 @@ public class PaymentView extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(204, 0, 0));
         jLabel3.setText("XTRA VISION XPRESS");
 
-        jButton1.setBackground(new java.awt.Color(153, 153, 153));
-        jButton1.setText("PAY");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        payButton.setBackground(new java.awt.Color(153, 153, 153));
+        payButton.setText("PAY");
+        payButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                payButtonActionPerformed(evt);
             }
         });
 
@@ -229,7 +232,7 @@ public class PaymentView extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(359, 359, 359)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(payButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel2))
                             .addComponent(backBasket, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -269,7 +272,7 @@ public class PaymentView extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(payButton, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(33, 33, 33)
                 .addComponent(backBasket, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
@@ -314,16 +317,18 @@ public class PaymentView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void payButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payButtonActionPerformed
                
         try{
                   
+            // caling database page
             DatabaseController db = new DatabaseController();
+            // calling the method into the database to check if the card exist in the database
             boolean checkCardExistDB = db.checkIfCardExist(jTextFieldCardNumber.getText());
             
             if(checkCardExistDB == false)
             {
-                //new customer
+                //if card does not exist it means it is a new customer and can rent only maximium 2 movies
                 if(idmovies.length > 2)
                 {
                     JOptionPane.showMessageDialog(this, "New customers can only rent 2 movies at the same time ");
@@ -349,24 +354,20 @@ public class PaymentView extends javax.swing.JFrame {
                     db.updateQuantityMoviesRented(idmovies);//take idmovies from to deduct stock quantity
 
 
-                    //show option pane with movies id and title to be returned later 
-
                     if(createTransaction){
                     //    System.out.println("code: ");
                         JOptionPane.showMessageDialog(this, "Success! "  );
-                        //JOptionPane.showMessageDialog(this, "Success! Your disc code is: " +  bask.idMovies.toString());
+                      
 
                     }      
-
-
-                    //TODO: if(createTransaction == true) { db.UpdateStockCountInDatabase(..)
+                        // go to Congratulation page when press pay button
                         Congratulation c1 = new Congratulation();
                         c1.show(); // display the congratulation page
 
                     
                 }
             }else{
-                
+                ////if card exist it means it is a new customer and can rent only maximium 4 movies
                 if(idmovies.length > 4)
                 {
                     JOptionPane.showMessageDialog(this, "Returning customers can only rent 4 movies at the same time ");
@@ -392,19 +393,14 @@ public class PaymentView extends javax.swing.JFrame {
                     db.updateQuantityMoviesRented(idmovies);//take idmovies from to deduct stock quantity
 
 
-                    //show option pane with movies id and title to be returned later 
-
-                    if(createTransaction){
-                        
+                     if(createTransaction){
                         
                       //  System.out.println("code: " );
                         JOptionPane.showMessageDialog(this, "Success!"   );
-                        //JOptionPane.showMessageDialog(this, "Success! Your disc code is: " +  bask.idMovies.toString());
-
+                   
                     }      
-
-
-                    //TODO: if(createTransaction == true) { db.UpdateStockCountInDatabase(..)
+                     
+                        // go to Congratulation page when press pay button
                         Congratulation c1 = new Congratulation();
                         c1.show(); // display the congratulation page
 
@@ -427,7 +423,7 @@ public class PaymentView extends javax.swing.JFrame {
         
 //       
               
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_payButtonActionPerformed
 
     private void jTextFieldCardNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCardNameActionPerformed
         // TODO add your handling code here:
@@ -446,9 +442,10 @@ public class PaymentView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void backBasketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBasketActionPerformed
+       // back to the basket page
         Basket2 b = new Basket2();
-        b.show(); 
-        dispose();
+        b.show(); // show the basket page
+        dispose(); // close the current frame
     }//GEN-LAST:event_backBasketActionPerformed
 
     /**
@@ -489,24 +486,10 @@ public class PaymentView extends javax.swing.JFrame {
         });
     }
     
-    //new customer can rent up to 2 movies 
-     private boolean limitBasketQuantatyOfMovies(boolean cardExistsInDatabase) {
-       
-//        if(!cardExistsInDatabase){
-//            if(Transaction.length > 2){ //if movie choice is greater than 2
-//                JOptionPane.showMessageDialog(this, "Please return some movies! New customer can rent up to 2 movies.");
-//                return false;
-//            }
-//
-//
-//        }
-        return true;
-    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBasket;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBoxMonth;
     private javax.swing.JComboBox<String> jComboBoxYear;
@@ -526,25 +509,11 @@ public class PaymentView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldCardName;
     private javax.swing.JTextField jTextFieldCardNumber;
     private javax.swing.JTextField jTextFieldCvv;
+    private javax.swing.JButton payButton;
     // End of variables declaration//GEN-END:variables
 
     
-    //
-    private boolean checkIfCardExist(boolean checkCardExistDB) {
-        
-        Basket2 b = new Basket2();
-        MovieList m = new MovieList();
 
-        if(!checkCardExistDB){
-            if(m.table.getSelectedRow() > 2){
-                JOptionPane.showMessageDialog(this, "Sorry,");
-                return false;
-            } 
-        }
-        
-        return true;
-
-        }
 
         
        
