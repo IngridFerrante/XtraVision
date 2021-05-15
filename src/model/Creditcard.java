@@ -11,20 +11,21 @@ import java.math.BigDecimal;
  *
  * @author kelly
  */
-public class Creditcard extends Card{
 
+//using Creditcard as subclass to access Card information as Card in an abstract class
+//Creditcard is inherited from Card class
+public class Creditcard extends Card{ 
+
+    //constructor from Card class
     public Creditcard(String IDcardNumber, String nameCard,int cvv, int monthExpiresDate, int yearExpiresDate) {
         super(IDcardNumber, nameCard,cvv, monthExpiresDate, yearExpiresDate);
     }
 
-   
 
     
     @Override
     protected void makePayment(BigDecimal amount) {
-        // call payment card service
-        // idMethodPayment = payService.VAULT(this.pan, this.pan, this.cvv, this.expirationDate, this.nameOnCard)
-        //payService.execute(this.amount, "EUR", this.pan,  idMethodPayment)
+
     }
 
     @Override

@@ -24,16 +24,20 @@ import view.Congratulation;
 /**
  *
  * @author kelly
+ * @author ingridferrante
  */
 public class Email {
     
+    //reference: https://stackoverflow.com and https://www.javatpoint.com/example-of-sending-html-content-with-email-using-java-mail-api
+    
     //sender -->xtravision email information that we created for the CA
     private String user = "xtravisionca@gmail.com"; //XtraVision CA email
-    private String pass = "Pass1234!";
+    private String pass = "Pass1234!"; //email password
     private String email;
     private String orderInformation;
     private Creditcard card;
 
+    //incapsulation -- getters and setters 
     public Creditcard getCard() {
         return card;
     }
@@ -55,7 +59,7 @@ public class Email {
     public Email(String to)
    
     {
-        
+        //adding propeties
         Properties prop = new Properties();
         prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");        
         prop.put("mail.smtp.auth", true);
@@ -81,30 +85,30 @@ public class Email {
                  
         Message message = new MimeMessage(session);
                                                 
-        //no_reply                                      
+        //set email from                                       
         message.setFrom(new InternetAddress("no_reply@xtravisionca.com"));          
           
-          
+        //receptor  
         message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
          
         // Set Subject: subject of the email
         message.setSubject("XtraVision Xpress Receipt");
           
-        // set body of the email 
+        // calling method into database 
         DatabaseController db = new DatabaseController();
         String text = db.sendOrderByEmail().toString();
              
-             
+        // set body of the email     
         message.setContent(text,"text/html; charset=utf-8" );
         message.saveChanges();
            
-        //message.setText(text, "text/html; charset=utf-8");
-          
+        //testing message
         System.out.println(message);
         
         //make the email message transport 
         Transport.send(message);
           
+        //testing message - concluded
         System.out.println("Mail sent");
           
         } catch (MessagingException e) {

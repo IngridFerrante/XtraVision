@@ -13,7 +13,7 @@ import java.math.BigDecimal;
  */
 public interface PaymentOptions {
     
-    
+    //method for payment
     public void pay(BigDecimal amount);
     
 }

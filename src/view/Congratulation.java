@@ -47,10 +47,10 @@ public class Congratulation extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextFieldTypeEmail = new javax.swing.JTextField();
+        inputEmail = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jButtonSubmitEmail = new javax.swing.JButton();
-        noThanksBtn = new javax.swing.JButton();
+        SubmitEmailBtn = new javax.swing.JButton();
+        closeSessionBtn = new javax.swing.JButton();
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -132,9 +132,9 @@ public class Congratulation extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Would you like to receive your receipt by email ?");
 
-        jTextFieldTypeEmail.addActionListener(new java.awt.event.ActionListener() {
+        inputEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldTypeEmailActionPerformed(evt);
+                inputEmailActionPerformed(evt);
             }
         });
 
@@ -142,23 +142,23 @@ public class Congratulation extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Email: ");
 
-        jButtonSubmitEmail.setBackground(new java.awt.Color(153, 153, 153));
-        jButtonSubmitEmail.setText("Submit");
-        jButtonSubmitEmail.addMouseListener(new java.awt.event.MouseAdapter() {
+        SubmitEmailBtn.setBackground(new java.awt.Color(153, 153, 153));
+        SubmitEmailBtn.setText("Submit");
+        SubmitEmailBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jButtonSubmitEmailMouseReleased(evt);
+                SubmitEmailBtnMouseReleased(evt);
             }
         });
-        jButtonSubmitEmail.addActionListener(new java.awt.event.ActionListener() {
+        SubmitEmailBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSubmitEmailActionPerformed(evt);
+                SubmitEmailBtnActionPerformed(evt);
             }
         });
 
-        noThanksBtn.setText("No, Thank you");
-        noThanksBtn.addActionListener(new java.awt.event.ActionListener() {
+        closeSessionBtn.setText("No, Thank you! Finish session.");
+        closeSessionBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                noThanksBtnActionPerformed(evt);
+                closeSessionBtnActionPerformed(evt);
             }
         });
 
@@ -181,9 +181,9 @@ public class Congratulation extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldTypeEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(inputEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonSubmitEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(SubmitEmailBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(77, 77, 77))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,7 +192,7 @@ public class Congratulation extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(303, 303, 303)
-                        .addComponent(noThanksBtn)))
+                        .addComponent(closeSessionBtn)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -208,11 +208,11 @@ public class Congratulation extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldTypeEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonSubmitEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SubmitEmailBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addGap(53, 53, 53)
-                .addComponent(noThanksBtn)
+                .addComponent(closeSessionBtn)
                 .addContainerGap(142, Short.MAX_VALUE))
         );
 
@@ -236,40 +236,40 @@ public class Congratulation extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldTypeEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTypeEmailActionPerformed
+    private void inputEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEmailActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jTextFieldTypeEmailActionPerformed
+    }//GEN-LAST:event_inputEmailActionPerformed
 
-    private void jButtonSubmitEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubmitEmailActionPerformed
+    private void SubmitEmailBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitEmailBtnActionPerformed
       
 
-// String email = jTextFieldTypeEmail.getText().trim(); //to get email from customer
+    StringBuilder builder = new StringBuilder();
 
-  StringBuilder builder = new StringBuilder();
-
-    if(jTextFieldTypeEmail.getText() == null || "".equals(jTextFieldTypeEmail.getText())){
-           //builder.append(jTextFieldTypeEmail.getText() + " is missing\n");
-           // allow email can be empty --- working on that
-           builder.append(jTextFieldTypeEmail.getText() + " is missing\n");
+    if(inputEmail.getText() == null || "".equals(inputEmail.getText())){
+           //if the customer click the email submit button, it has to be filled
+           builder.append(inputEmail.getText() + " is missing\n");
            JOptionPane.showMessageDialog(this, "put email please! " );
     }else {
-          Email SE = new Email (jTextFieldTypeEmail.getText());
-          
-                  JOptionPane.showMessageDialog(this, "email sent! " );
-                  dispose();
+          //email object to get email from customer
+          Email SE = new Email (inputEmail.getText());
+                  //message confirm that email was sent
+                  JOptionPane.showMessageDialog(this, "Thank you, email sent! " );
+                  dispose(); //close app
                   
       }
-    }//GEN-LAST:event_jButtonSubmitEmailActionPerformed
+    }//GEN-LAST:event_SubmitEmailBtnActionPerformed
   
-    private void jButtonSubmitEmailMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSubmitEmailMouseReleased
-    //Email SE = new Email (jTextFieldTypeEmail.getText()); 
+    private void SubmitEmailBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SubmitEmailBtnMouseReleased
+   
 
-    }//GEN-LAST:event_jButtonSubmitEmailMouseReleased
+    }//GEN-LAST:event_SubmitEmailBtnMouseReleased
 
-    private void noThanksBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noThanksBtnActionPerformed
-        super.dispose();
-    }//GEN-LAST:event_noThanksBtnActionPerformed
+    private void closeSessionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeSessionBtnActionPerformed
+        //this button gives the customer the option of close the app 
+        //without having to input an email
+        super.dispose(); //button close app 
+    }//GEN-LAST:event_closeSessionBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -320,7 +320,9 @@ public class Congratulation extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonSubmitEmail;
+    private javax.swing.JButton SubmitEmailBtn;
+    private javax.swing.JButton closeSessionBtn;
+    private javax.swing.JTextField inputEmail;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -333,8 +335,6 @@ public class Congratulation extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextFieldTypeEmail;
-    private javax.swing.JButton noThanksBtn;
     // End of variables declaration//GEN-END:variables
 
 
