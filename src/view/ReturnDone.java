@@ -212,13 +212,15 @@ public class ReturnDone extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void yesRentjToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesRentjToggleButtonActionPerformed
-        Main goBackToMain = new Main();
-        goBackToMain.show();
+        // if customer wish to rent a new movie go to MovieList page
+        MovieList goBackToMovielist = new MovieList();
+        goBackToMovielist.show(); // show movie list page
         dispose();
     }//GEN-LAST:event_yesRentjToggleButtonActionPerformed
 
     private void noLeavePagejToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noLeavePagejToggleButton2ActionPerformed
-       super.dispose();       
+       // if customer does not rent another movie close the page
+        super.dispose();       
     }//GEN-LAST:event_noLeavePagejToggleButton2ActionPerformed
   
     /**
