@@ -24,9 +24,9 @@ import view.Main;
 //import model.Stock;
 
 /**
- *
- * @author ingridferrante
+ * 
  * @author kelly
+ * @author ingridferrante
  */
 public class MovieList extends javax.swing.JFrame {
 

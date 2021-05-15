@@ -20,7 +20,7 @@ public class MoviesTable extends AbstractTableModel {
     private String[] columnNames = {"Title","Synopsis","Genre","Director","Year", "Price","id"};
     private Movie[] movies;
     
-//Movie table passing the  array into parameter
+    //Movie table passing the  array into parameter
     public MoviesTable( Movie[] movies) {
         this.movies = movies;
     }

@@ -81,8 +81,7 @@ public class Transaction {
 
     @Override
     public String toString() {
-        //return "Transaction{" + "cardNumber=" + cardNumber + ", startDate=" + startDate + ", endDate=" + endDate + ", totalPrice=" + totalPrice + '}';     
-        // return to print in the email to the customer
+     // return to print in the email to the customer
         return "Your XtraVision Xpress ORDER: "  + "\n" + " Order number:" + cardNumber + "\n" + "Rental start date:" 
                 + startDate + " \n Rental end date:" + endDate + " \n Total paid:" + totalPrice 
                 + "\n RETURN INFORMATION: you can find the movie return number at the case of each movie." 

@@ -34,7 +34,7 @@ public class Email {
     private String user = "xtravisionca@gmail.com"; //XtraVision CA email
     private String pass = "Pass1234!"; //email password
     private String email;
-    private String orderInformation;
+   // private String orderInformation;
     private Creditcard card;
 
     //incapsulation -- getters and setters 

@@ -17,7 +17,7 @@ import view.Main;
 
 /**
  * @author kelly
- * @author ingridferrante
+ * 
  */
 public class Return extends javax.swing.JFrame {
 

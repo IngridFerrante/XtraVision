@@ -17,6 +17,7 @@ import java.util.regex.Pattern;
 /**
  *
  * @author ingridferrante
+ * @author kelly
  */
 public class Congratulation extends javax.swing.JFrame {
 
@@ -243,13 +244,13 @@ public class Congratulation extends javax.swing.JFrame {
 
     private void SubmitEmailBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitEmailBtnActionPerformed
       
-
+    //validate if the imput is empty when the customer press submit
     StringBuilder builder = new StringBuilder();
 
     if(inputEmail.getText() == null || "".equals(inputEmail.getText())){
            //if the customer click the email submit button, it has to be filled
            builder.append(inputEmail.getText() + " is missing\n");
-           JOptionPane.showMessageDialog(this, "put email please! " );
+           JOptionPane.showMessageDialog(this, "Type email please! " );
     }else {
           //email object to get email from customer
           Email SE = new Email (inputEmail.getText());

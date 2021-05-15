@@ -89,12 +89,12 @@ public abstract class Card implements PaymentOptions {
      public void checkCardValidation(Card card) {
        
          
-          cardNameValidation(card);
-          idCardNumberValidation(card);
-          emptyCardNumberValidation(card);
-          cardNumberLength(card);
-          cvvValidation(card);
-           cvvLength(card);
+        cardNameValidation(card);
+        idCardNumberValidation(card);
+        emptyCardNumberValidation(card);
+        cardNumberLength(card);
+        cvvValidation(card);
+        cvvLength(card);
        
     }   
      //validations
