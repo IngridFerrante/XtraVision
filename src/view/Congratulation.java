@@ -255,7 +255,7 @@ public class Congratulation extends javax.swing.JFrame {
           Email SE = new Email (inputEmail.getText());
                   //message confirm that email was sent
                   JOptionPane.showMessageDialog(this, "Thank you, email sent! " );
-                  dispose(); //close app
+                  dispose(); //close app--close current frame 
                   
       }
     }//GEN-LAST:event_SubmitEmailBtnActionPerformed
@@ -268,7 +268,7 @@ public class Congratulation extends javax.swing.JFrame {
     private void closeSessionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeSessionBtnActionPerformed
         //this button gives the customer the option of close the app 
         //without having to input an email
-        super.dispose(); //button close app 
+        super.dispose(); //button close app -- close current frame 
     }//GEN-LAST:event_closeSessionBtnActionPerformed
 
     /**

@@ -16,7 +16,7 @@ import model.Movies;
 import view.Main;
 
 /**
- *
+ * @author kelly
  * @author ingridferrante
  */
 public class Return extends javax.swing.JFrame {
@@ -54,10 +54,10 @@ public class Return extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextFieldReturnDisc = new javax.swing.JTextField();
+        ReturnDiscField = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        submitReturnButton = new javax.swing.JButton();
-        backToMain = new javax.swing.JButton();
+        submitReturnBtn = new javax.swing.JButton();
+        backToMainBtn = new javax.swing.JButton();
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -118,9 +118,9 @@ public class Return extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Type your disc code or your order number");
 
-        jTextFieldReturnDisc.addActionListener(new java.awt.event.ActionListener() {
+        ReturnDiscField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldReturnDiscActionPerformed(evt);
+                ReturnDiscFieldActionPerformed(evt);
             }
         });
 
@@ -128,18 +128,18 @@ public class Return extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Return");
 
-        submitReturnButton.setBackground(new java.awt.Color(153, 153, 153));
-        submitReturnButton.setText("Submit to return DISC");
-        submitReturnButton.addActionListener(new java.awt.event.ActionListener() {
+        submitReturnBtn.setBackground(new java.awt.Color(153, 153, 153));
+        submitReturnBtn.setText("Submit to return DISC");
+        submitReturnBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitReturnButtonActionPerformed(evt);
+                submitReturnBtnActionPerformed(evt);
             }
         });
 
-        backToMain.setText("Back");
-        backToMain.addActionListener(new java.awt.event.ActionListener() {
+        backToMainBtn.setText("Back");
+        backToMainBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backToMainActionPerformed(evt);
+                backToMainBtnActionPerformed(evt);
             }
         });
 
@@ -151,12 +151,12 @@ public class Return extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(backToMain, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(backToMainBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(420, 420, 420))
-                    .addComponent(jTextFieldReturnDisc, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ReturnDiscField, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel2)
-                    .addComponent(submitReturnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(submitReturnBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(153, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -173,11 +173,11 @@ public class Return extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(jTextFieldReturnDisc, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ReturnDiscField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(submitReturnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(submitReturnBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addComponent(backToMain, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(backToMainBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
         );
 
@@ -201,59 +201,51 @@ public class Return extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldReturnDiscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldReturnDiscActionPerformed
+    private void ReturnDiscFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnDiscFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldReturnDiscActionPerformed
+    }//GEN-LAST:event_ReturnDiscFieldActionPerformed
 
-    private void submitReturnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitReturnButtonActionPerformed
+    private void submitReturnBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitReturnBtnActionPerformed
 
-        
-        
         
         try{
-        //   String discCodeID = jTextFieldReturnDisc.getText();
+            //Object calling the database
             DatabaseController dbReturn = new DatabaseController();
 
-            //get the user input
-            //Movie discCodeID = new Movie(Integer.parseInt(jTextFieldReturnDisc.getText()));
-            int movieId = Integer.parseInt(jTextFieldReturnDisc.getText());
+            //get the user input       
+            int movieId = Integer.parseInt(ReturnDiscField.getText());
             
-             //check if code exist in database 
-             //boolean checkIDmovie = dbReturn.checkDiscCodeInDatabase(discCodeID);
-             boolean checkIDmovie = dbReturn.checkDiscCodeInDatabase(movieId);
-             
-//             PaymentView p = new PaymentView();
-//             int ind[] = p.idmovies;
-//            
-            
+            //check if code exist in database 
+            boolean checkIDmovie = dbReturn.checkDiscCodeInDatabase(movieId);
              
            
-             if(checkIDmovie){
+            if(checkIDmovie){
      
-              dbReturn.updateQuantityMoviesReturned(movieId);//returned
+            dbReturn.updateQuantityMoviesReturned(movieId);//movie returned in stock
                 
-              JOptionPane.showMessageDialog(this, "Movie confirmed " +  movieId ); // does not identify the input 
-              ReturnDone goReturndonePage = new ReturnDone();
-              goReturndonePage.show();
-              dispose();
+            //confirmed that the movie id is returned
+            JOptionPane.showMessageDialog(this, "Movie confirmed " +  movieId );
+            ReturnDone goReturndonePage = new ReturnDone();
+            goReturndonePage.show(); //open returnDone
+            dispose(); // close current frame after open ReturnDone
                
             }
-            else{
+            else{ //if input wrong id, display that disc code is incorrect
                 JOptionPane.showMessageDialog(this, "There is no disc code ");
             }
         }
-        catch (Exception ex) {
+        catch (Exception ex) { //if customer type something diferrent as sting char for example
            JOptionPane.showMessageDialog(this, "Error: Disc code INVALID");
         }
         
 
-    }//GEN-LAST:event_submitReturnButtonActionPerformed
+    }//GEN-LAST:event_submitReturnBtnActionPerformed
         //back button take to Main (Rent and Return menu)<<
-    private void backToMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToMainActionPerformed
+    private void backToMainBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToMainBtnActionPerformed
         Main p1 = new Main();
-        p1.show(); 
-        dispose();
-    }//GEN-LAST:event_backToMainActionPerformed
+        p1.show(); //open Main 
+        dispose(); // close current frame after open Main
+    }//GEN-LAST:event_backToMainBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -292,7 +284,8 @@ public class Return extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backToMain;
+    private javax.swing.JTextField ReturnDiscField;
+    private javax.swing.JButton backToMainBtn;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -301,7 +294,6 @@ public class Return extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextFieldReturnDisc;
-    private javax.swing.JButton submitReturnButton;
+    private javax.swing.JButton submitReturnBtn;
     // End of variables declaration//GEN-END:variables
 }

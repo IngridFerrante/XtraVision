@@ -58,7 +58,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                          <Component id="backMainButton" min="-2" pref="97" max="-2" attributes="0"/>
+                          <Component id="backToMainBtn" min="-2" pref="97" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
@@ -66,7 +66,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="306" max="-2" attributes="0"/>
-                          <Component id="checkoutButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="goToBasketBtn" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
@@ -95,9 +95,9 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="80" max="32767" attributes="0"/>
-                  <Component id="checkoutButton" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="goToBasketBtn" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="backMainButton" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="backToMainBtn" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -115,12 +115,12 @@
             <Property name="text" type="java.lang.String" value="XTRA VISION XPRESS"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="backMainButton">
+        <Component class="javax.swing.JButton" name="backToMainBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Back"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backMainButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backToMainBtnActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -189,12 +189,12 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="checkoutButton">
+        <Component class="javax.swing.JButton" name="goToBasketBtn">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Proceed Checkout"/>
+            <Property name="text" type="java.lang.String" value="Go to BASKET"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkoutButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="goToBasketBtnActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">

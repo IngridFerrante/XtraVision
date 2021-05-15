@@ -15,7 +15,6 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import controller.MoviesTable;
-//import controller.RentController;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -49,10 +48,10 @@ public class MovieList extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        backMainButton = new javax.swing.JButton();
+        backToMainBtn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
-        checkoutButton = new javax.swing.JButton();
+        goToBasketBtn = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -70,10 +69,10 @@ public class MovieList extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(204, 0, 0));
         jLabel1.setText("XTRA VISION XPRESS");
 
-        backMainButton.setText("Back");
-        backMainButton.addActionListener(new java.awt.event.ActionListener() {
+        backToMainBtn.setText("Back");
+        backToMainBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backMainButtonActionPerformed(evt);
+                backToMainBtnActionPerformed(evt);
             }
         });
 
@@ -100,10 +99,10 @@ public class MovieList extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(table);
 
-        checkoutButton.setText("Proceed Checkout");
-        checkoutButton.addActionListener(new java.awt.event.ActionListener() {
+        goToBasketBtn.setText("Go to BASKET");
+        goToBasketBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkoutButtonActionPerformed(evt);
+                goToBasketBtnActionPerformed(evt);
             }
         });
 
@@ -133,13 +132,13 @@ public class MovieList extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(backMainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(backToMainBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(167, 167, 167)
                         .addComponent(jLabel11))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(306, 306, 306)
-                        .addComponent(checkoutButton))
+                        .addComponent(goToBasketBtn))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(224, 224, 224)
                         .addComponent(jLabel13))
@@ -162,9 +161,9 @@ public class MovieList extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(checkoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(goToBasketBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(backMainButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(backToMainBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -182,47 +181,38 @@ public class MovieList extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backMainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backMainButtonActionPerformed
-        // open page 2
-            Main b1 = new Main();
-            b1.show(); // display movielist here
-            
-            dispose(); // close current frame after open movielist
-    }//GEN-LAST:event_backMainButtonActionPerformed
+    private void backToMainBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToMainBtnActionPerformed
+
+        Main b1 = new Main();
+        b1.show(); // display Main here
+        dispose(); // close current frame after open Main
+        
+    }//GEN-LAST:event_backToMainBtnActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
        showMoviesIntable();
     }//GEN-LAST:event_formWindowOpened
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
-     
-       
-        
-//        //make the table be clickable 
-//           ListSelectionModel model=table.getSelectionModel();
-//           
-//           if(! model.isSelectionEmpty()){
-//                    
-//                    // get selected row
-//                    int selectedRow=model.getMinSelectionIndex();
-//                    // and do: 
-//                    System.out.println("selected" + selectedRow);
-//                }
+
     }//GEN-LAST:event_tableMouseClicked
 
-    private void checkoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutButtonActionPerformed
-        // TODO add your handling code here:
+    private void goToBasketBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goToBasketBtnActionPerformed
+        //take the MovieList selection to the Basket 
         
+        //Table model object to manage the actual table data
         TableModel model = table.getModel();
         int indexs[] = table.getSelectedRows();
         
-        
+        //create array to hold the selected movies
         Object[] row = new Object[7]; 
 
         //take selected movies table selected rows to send to Basket2
         Basket2 basket = new Basket2();
+        //DefaultTableModel to store the cell value objects
         DefaultTableModel model2 = (DefaultTableModel)basket.jTable1.getModel();
 
+        //for to go through all the movieList rows to get the selection
         for(int i = 0; i < indexs.length; i++){
 
             row[0] = model.getValueAt(indexs[i], 0);
@@ -237,12 +227,12 @@ public class MovieList extends javax.swing.JFrame {
         }
 
 
-        basket.setVisible(true);
+        basket.setVisible(true); //the btn go to basket after section 
         
-        dispose();
+        dispose(); //close MovieList frame 
         // ---------------------------------------------------------//
         
-    }//GEN-LAST:event_checkoutButtonActionPerformed
+    }//GEN-LAST:event_goToBasketBtnActionPerformed
 
 
     /**
@@ -281,20 +271,26 @@ public class MovieList extends javax.swing.JFrame {
         });
     }
     private void showMoviesIntable(){
-        DatabaseController dbControl = new DatabaseController(); // creating an instance of my database in here
-        Movie[] movies = dbControl.getAllMoviesFromDatabase(); //usando o method para select info from database
-        MoviesTable model = new MoviesTable(movies); //this table exist in java already
+        // creating an instance of the database in here
+        DatabaseController dbControl = new DatabaseController(); 
+        
+        //creating an instance of Movie class in here, using o method to select infomation from database table
+        Movie[] movies = dbControl.getAllMoviesFromDatabase(); 
+        
+        //this table exist in java already and display the movies
+        MoviesTable model = new MoviesTable(movies); 
+        
         table.setModel(model); //set the information 
-        table.getColumnModel().getColumn(6).setMaxWidth(0); // get the last column and set the max width
-        table.getColumnModel().getColumn(6).setMinWidth(0); // get the last column and set the min width -1 movie in stock
+        table.getColumnModel().getColumn(6).setMaxWidth(0); // get collumn and set the max width
+        table.getColumnModel().getColumn(6).setMinWidth(0); // set the min width
         table.getColumnModel().getColumn(6).setWidth(0); // just display movies in stock
         table.repaint(); //to show
         
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backMainButton;
-    private javax.swing.JButton checkoutButton;
+    private javax.swing.JButton backToMainBtn;
+    private javax.swing.JButton goToBasketBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -304,7 +300,5 @@ public class MovieList extends javax.swing.JFrame {
     public javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 
-
-    
 
 }
