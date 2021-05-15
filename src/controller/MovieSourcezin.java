@@ -12,10 +12,11 @@ import model.Movie;
  *
  * @author ingridferrante
  */
-public interface MovieSourcezin {
-    boolean isCached();
-    Movie[] getMovies();
-    Movie[] getMoviesByTitle(String title);
-    Movie getMovieById(int id);
-    Movie[] getMoviesByGenre(String selectedGenre);
-}
+// 
+//public interface MovieSourcezin {
+//    boolean isCached();
+//    Movie[] getMovies();
+//    Movie[] getMoviesByTitle(String title);
+//    Movie getMovieById(int id);
+//    Movie[] getMoviesByGenre(String selectedGenre);
+//}

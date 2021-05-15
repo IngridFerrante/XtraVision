@@ -12,13 +12,16 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import view.PaymentView;
 
 /**
  *
  * @author kelly
  */
+
+// this is abstract because you cannot let anyone to have access to the user card information attributes
 public abstract class Card implements PaymentOptions {
-    
+    //attributes
     protected String IDcardNumber;
     protected String nameCard;
     protected int monthExpiresDate;
@@ -27,16 +30,19 @@ public abstract class Card implements PaymentOptions {
     protected int cvv;
     
     protected abstract void makePayment(BigDecimal amount);
-
+    
+    
+//constructor with paramaters
     public Card(String IDcardNumber, String nameCard, int monthExpiresDate,int yearExpiresDate, int cvv) {
         this.IDcardNumber = IDcardNumber;
         this.nameCard = nameCard;
         this.monthExpiresDate = monthExpiresDate;
         this.yearExpiresDate = yearExpiresDate;
         this.cvv = cvv;
-//        this.cardPassword = cardPassword;
     }
 
+    //encapsulation getters and setters 
+    
     public String getIDcardNumber() {
         return IDcardNumber;
     }
@@ -80,7 +86,6 @@ public abstract class Card implements PaymentOptions {
 
     
   // methods to check card input validation
-    
      public void checkCardValidation(Card card) {
        
          
@@ -88,13 +93,14 @@ public abstract class Card implements PaymentOptions {
           idCardNumberValidation(card);
           emptyCardNumberValidation(card);
           cardNumberLength(card);
-          //   cvvValidation(card);
-         // cvvLength(card);
+          cvvValidation(card);
+           cvvLength(card);
        
     }   
+     //validations
      
      public void cardNameValidation(Card card){
-         
+         // Card name has to be only letters!
          if(!card.getNameCard().matches("^[a-zA-Z ]+$")){
             System.out.println("Card name has to be only letters!");
         }        
@@ -110,7 +116,7 @@ public abstract class Card implements PaymentOptions {
     }
     
     public void emptyCardNumberValidation(Card card){
-         
+         // Card number cannot be empty!
         if(card.getIDcardNumber().isEmpty()){
             System.out.println("Card number cannot be empty!");
         }
@@ -119,7 +125,7 @@ public abstract class Card implements PaymentOptions {
     
    
     public void cardNumberLength(Card card){
-         
+         // Card number has to be 16 digits!
          if(card.getIDcardNumber().length() != 16){
             System.out.println("Card number has to be 16 digits!");
         }      
@@ -128,14 +134,14 @@ public abstract class Card implements PaymentOptions {
     
     
     public void cvvValidation(Card card){
-         
-        //if(!card.getCvv().matches("[0-9]+")){
+         //cvv number have to be numbers!
+     //   if(!card.getCvv().matches("[0-9]+")){
             System.out.println("Card security number have to be numbers!");
         //}      
     }
     
     public void cvvLength(Card card){
-         
+         // cvv number contains only 3 digits!
      //   if(card.getCvv().length() != 3){
            System.out.println("Card security number contains only 3 digits!");
       //  }  
@@ -143,6 +149,7 @@ public abstract class Card implements PaymentOptions {
     
     
     public void dateValidation(){
+        // method to set the format to the "yyyy/mm/dd" 
         String date = "anocarto-meacartoa-01";
         LocalDate dateConvertion = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-mm-dd"));
         dateConvertion = dateConvertion.withDayOfMonth(dateConvertion.getMonth().length(dateConvertion.isLeapYear()));

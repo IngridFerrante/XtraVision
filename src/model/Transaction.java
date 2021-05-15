@@ -24,25 +24,23 @@ import javax.mail.internet.MimeMessage;
  * @author ingridferrante
  */
 public class Transaction {
-    
+    //atributes
     protected final String cardNumber;
     protected Date startDate;
     protected Date endDate;
     protected final double totalPrice; // price for each disc/movie
-    
-    //private Customer customer;
     private String orderInformation;
 
+    //constructor with parameters 
     public Transaction(String cardNumber, Date startDate, Date endDate, double totalPrice,  String orderInformation) {
         this.cardNumber = cardNumber;
         this.startDate = startDate;
         this.endDate = endDate;
         this.totalPrice = totalPrice;
-        //this.customer = customer;
         this.orderInformation = orderInformation;
     }
 
-
+    //getters
     public Date getStartDate() {
         return startDate;
     }
@@ -72,6 +70,7 @@ public class Transaction {
         return totalPrice;
     }
 
+    //constructor
     public Transaction(String cardNumber, Date startDate, Date endDate, double totalPrice) {
         
         this.cardNumber = cardNumber;
@@ -83,7 +82,8 @@ public class Transaction {
     @Override
     public String toString() {
         //return "Transaction{" + "cardNumber=" + cardNumber + ", startDate=" + startDate + ", endDate=" + endDate + ", totalPrice=" + totalPrice + '}';     
-        return "Your XtraVision Xpress ORDER: "  + "\n" + " User card:" + cardNumber + "\n" + "Rental start date:" 
+        // return to print in the email to the customer
+        return "Your XtraVision Xpress ORDER: "  + "\n" + " Order number:" + cardNumber + "\n" + "Rental start date:" 
                 + startDate + " \n Rental end date:" + endDate + " \n Total paid:" + totalPrice 
                 + "\n RETURN INFORMATION: you can find the movie return number at the case of each movie." 
                 +"\n Any incorrect charge or for more information, please contact us: " + "\n" + "010010001";

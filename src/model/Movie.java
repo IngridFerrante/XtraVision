@@ -15,41 +15,18 @@ import java.util.List;
  */
 public class Movie extends Movies{
 
-    //constructor 
+    //constructor with parameters extended from movies
     public Movie(int IDmovie, String title, String synopsis, String genre, String director, int year, double priceMovie) {
         super(IDmovie, title, synopsis, genre, director, year, priceMovie);
     }
-//   
-//    public Movie(int IDmovie, String title, String synopsis, String genre, String director, int year, double priceMovie, String idDiscCode) {
-//        super(IDmovie, title, synopsis, genre, director, year, priceMovie, idDiscCode);
-//    }
 
+    //Constructor with parameter IDmovie;
     public Movie(int IDmovie) {
         super(IDmovie);
     }
 
-    
-
-//
-//    @Override //not being used at the moment --> test console
-//    public String toString() {
-//        if (idDiscCode != null)
-//            return "Movie{" + "title=" + title + ", synopsis=" + synopsis +   ", genre=" + genre + ", year=" + year + ", IDmovie=" + IDmovie + ", status=" + idDiscCode + '}';
-//        else
-//            return "Movie{" + "title=" + title + ", synopsis=" + synopsis + ", genre=" + genre + ", year=" + year + ", IDmovie=" + IDmovie + ", status=" + idDiscCode + '}';
-//    }
-//    
-//    @Override
-//    public String toShortString() {
-//        
-//        if (idDiscCode != null)
-//            return "Movie{" + "title=" + title +  ", genre=" + genre + ", year=" + year + ", status=" + idDiscCode + '}';
-//        else
-//            return "Movie{" + "title=" + title + ", genre=" + genre + ", year=" + year + ", status=" + idDiscCode + '}';
-//            
-//    }    //not being used at the moment --> test console
-    
-    
+ 
+    //getters
 
     public int getIDmovie() {
         return IDmovie;
@@ -79,10 +56,6 @@ public class Movie extends Movies{
         return priceMovie;
     }
     
-    
-//    public List<Stock> getStock() {
-//        return stock;
-//    }
-  
+
     
 }
